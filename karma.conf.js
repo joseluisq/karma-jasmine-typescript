@@ -13,10 +13,13 @@ module.exports = (config) => {
     frameworks: [ 'jasmine', 'karma-typescript' ],
     plugins: [
       'karma-jasmine',
-      'karma-typescript',
       'karma-chrome-launcher',
+      'karma-typescript',
       'karma-spec-reporter'
     ],
+    karmaTypescriptConfig: {
+      tsconfig: "./tsconfig.json",
+    },
     client: {
       // leave Jasmine Spec Runner output visible in browser
       clearContext: false
@@ -26,7 +29,7 @@ module.exports = (config) => {
       'src/**/*.ts': [ 'karma-typescript' ],
       'test/**/*.spec.ts': [ 'karma-typescript' ]
     },
-    reporters: [ 'progress', 'karma-typescript' ],
+    reporters: [ 'spec', 'karma-typescript' ],
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
